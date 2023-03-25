@@ -18,11 +18,25 @@ router.post(
   [
     // middlewares
     check("name", "Name is required").not().isEmpty(),
+    check("email", "Email is required").isEmail(),
+    check("password", "Password must be at leats be 6 characters").isLength({
+      min: 6,
+    }),
   ],
   createUser
 );
 
-router.post("/", userLogin);
+router.post(
+  "/",
+  [
+    // middlewares
+    check("email", "Email is required").isEmail(),
+    check("password", "Password must be at leats be 6 characters").isLength({
+      min: 6,
+    }),
+  ],
+  userLogin
+);
 
 router.get("/renew", revalidateToken);
 
