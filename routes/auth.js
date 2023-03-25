@@ -5,6 +5,7 @@
 
 const express = require("express");
 const router = express.Router();
+const { check } = require("express-validator");
 
 const {
   createUser,
@@ -12,7 +13,14 @@ const {
   revalidateToken,
 } = require("../controllers/auth");
 
-router.post("/register", createUser);
+router.post(
+  "/register",
+  [
+    // middlewares
+    check("name", "Name is required").not().isEmpty(),
+  ],
+  createUser
+);
 
 router.post("/", userLogin);
 
