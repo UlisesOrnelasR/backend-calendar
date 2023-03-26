@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 require("dotenv").config(); // Carga las variables de entorno del archivo .env y unicamente es requerido llamarse una vez en el proyecto (index.js) para que esten disponibles en toda la aplicacion
 const { dbConnection } = require("./database/config");
 
@@ -9,6 +10,9 @@ const app = express();
 
 // Database
 dbConnection();
+
+// CORS
+app.use(cors());
 
 // Directorio public
 app.use(express.static("public"));
