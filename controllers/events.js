@@ -29,11 +29,42 @@ const createEvent = async (req, res = response) => {
   }
 };
 
-const updateEvent = (req, res = response) => {
-  res.json({
-    ok: true,
-    msg: "update Event",
-  });
+const updateEvent = async (req, res = response) => {
+  const eventId = req.params.id;
+  const uid = req.uid;
+  try {
+    const event = await Event.findById(eventId);
+    if (!event) {
+      res.status(404).json({
+        ok: false,
+        msg: "Nonexistent event",
+      });
+    }
+    if (event.user.toString() !== uid) {
+      return res.status(401).json({
+        ok: false,
+        msg: "Not authorized, you cannot edit this event",
+      });
+    }
+    const newEvent = {
+      ...req.body,
+      user: uid,
+    };
+    const updatedEvent = await Event.findByIdAndUpdate(eventId, newEvent, {
+      new: true,
+    });
+
+    res.json({
+      ok: true,
+      event: updatedEvent,
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({
+      ok: false,
+      msg: "Talk with administrator...",
+    });
+  }
 };
 
 const deleteEvent = (req, res = response) => {

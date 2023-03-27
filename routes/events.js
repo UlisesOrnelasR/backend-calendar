@@ -37,7 +37,17 @@ router.post(
 );
 
 // Actualizar evento
-router.put("/:id", updateEvent);
+router.put(
+  "/:id",
+  [
+    // middlewares
+    check("title", "Title is required").not().isEmpty(),
+    check("start", "Start date is required").custom(isDate),
+    check("end", "End date is required").custom(isDate),
+    validateFields,
+  ],
+  updateEvent
+);
 
 // Borra event o
 router.delete("/:id", deleteEvent);
