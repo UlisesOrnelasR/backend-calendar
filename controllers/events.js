@@ -1,4 +1,5 @@
 const { response } = require("express");
+const Event = require("../models/Event");
 
 const getEvents = (req, res = response) => {
   res.json({
@@ -8,6 +9,8 @@ const getEvents = (req, res = response) => {
 };
 
 const createEvent = (req, res = response) => {
+  // verificamos que tenga el evnto
+  console.log(req.body);
   res.json({
     ok: true,
     msg: "create Events",
