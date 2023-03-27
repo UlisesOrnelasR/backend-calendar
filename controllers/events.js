@@ -8,13 +8,23 @@ const getEvents = (req, res = response) => {
   });
 };
 
-const createEvent = (req, res = response) => {
-  // verificamos que tenga el evnto
-  console.log(req.body);
-  res.json({
-    ok: true,
-    msg: "create Events",
-  });
+const createEvent = async (req, res = response) => {
+  const event = new Event(req.body);
+
+  try {
+    event.user = req.uid;
+    const eventSaved = await event.save();
+    res.json({
+      ok: true,
+      event: eventSaved,
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({
+      ok: false,
+      msg: "Talk with administrator...",
+    });
+  }
 };
 
 const updateEvent = (req, res = response) => {
