@@ -9,6 +9,7 @@ const { validateJWT } = require("../middlewares/validateJWT");
 
 const router = express.Router();
 
+const { isDate } = require("../helpers/isDate");
 const {
   getEvents,
   createEvent,
@@ -23,7 +24,17 @@ router.use(validateJWT);
 router.get("/", getEvents);
 
 // Crear evento
-router.post("/", createEvent);
+router.post(
+  "/",
+  [
+    // middlewares
+    check("title", "Title is required").not().isEmpty(),
+    check("start", "Start date is required").custom(isDate),
+    check("end", "End date is required").custom(isDate),
+    validateFields,
+  ],
+  createEvent
+);
 
 // Actualizar evento
 router.put("/:id", updateEvent);
