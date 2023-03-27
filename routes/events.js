@@ -17,16 +17,18 @@ const {
 } = require("../controllers/events");
 
 // Todas tienen que pasar por la validacion del token
+router.use(validateJWT);
+
 // Obtener eventos
-router.get("/", validateJWT, getEvents);
+router.get("/", getEvents);
 
 // Crear evento
-router.post("/", validateJWT, createEvent);
+router.post("/", createEvent);
 
 // Actualizar evento
-router.put("/:id", validateJWT, updateEvent);
+router.put("/:id", updateEvent);
 
 // Borra event o
-router.delete("/:id", validateJWT, deleteEvent);
+router.delete("/:id", deleteEvent);
 
 module.exports = router;
