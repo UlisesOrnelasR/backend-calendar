@@ -11,17 +11,19 @@ Este es una aplicación de backend para un calendario que proporciona APIs RESTf
 
 1.  Clona el repositorio
 
-    `git clone https://github.com/tu-nombre-de-usuario/backend-calendar.git`
+    `git clone https://github.com/UlisesOrnelasR/backend-calendar.git`
 
 2.  Instala las dependencias
 
-    `cd backend-calendar
-npm install`
+        `cd backend-calendar
+
+    npm install`
 
 3.  Crea un archivo `.env` y proporciona las variables de entorno necesarias. Puedes usar el archivo `.env.example` como plantilla.
 
-    `touch .env
-cp .env.example .env`
+        `touch .env
+
+    cp .env.example .env`
 
 ## Uso
 
