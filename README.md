@@ -4,34 +4,32 @@ Este es una aplicación de backend para un calendario que proporciona APIs RESTf
 
 ## Requisitos
 
--   Node.js
--   MongoDB
+- Node.js
+- MongoDB
 
 ## Instalación
 
 1.  Clona el repositorio
-    
-    `git clone https://github.com/tu-nombre-de-usuario/backend-calendar.git` 
-    
+
+    `git clone https://github.com/tu-nombre-de-usuario/backend-calendar.git`
+
 2.  Instala las dependencias
-    
+
     `cd backend-calendar
-    npm install` 
-    
+npm install`
+
 3.  Crea un archivo `.env` y proporciona las variables de entorno necesarias. Puedes usar el archivo `.env.example` como plantilla.
-    
+
     `touch .env
-    cp .env.example .env` 
-    
+cp .env.example .env`
 
 ## Uso
 
 1.  Ejecuta el servidor de desarrollo
-    
-    `npm run dev` 
-    
-2.  Realiza solicitudes a `http://localhost:3000/api/` usando tu cliente API preferido.
-    
+
+    `npm run dev`
+
+2.  Realiza solicitudes a `http://localhost:4001/api/` usando tu cliente API preferido.
 
 ## Scripts Disponibles
 
@@ -54,15 +52,15 @@ En este momento, no hay pruebas disponibles.
 
 ## Dependencias
 
--   bcryptjs
--   cors
--   dotenv
--   express
--   express-validator
--   jsonwebtoken
--   moment
--   mongoose
--   nodemon
+- bcryptjs
+- cors
+- dotenv
+- express
+- express-validator
+- jsonwebtoken
+- moment
+- mongoose
+- nodemon
 
 ## Licencia
 
