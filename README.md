@@ -63,3 +63,9 @@ En este momento, no hay pruebas disponibles.
 ## Licencia
 
 Este proyecto está licenciado bajo la Licencia ISC. Consulta el archivo `LICENSE` para obtener más detalles.
+
+![login](https://github.com/UlisesOrnelasR/backend-calendar/assets/99143567/fe8c9dde-e277-4352-92c9-d5cc45ca6ec2)
+
+![new-event](https://github.com/UlisesOrnelasR/backend-calendar/assets/99143567/d95833bb-5d05-41d7-ab38-c5ea8c327298)
+
+
